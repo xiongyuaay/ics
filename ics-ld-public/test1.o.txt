@@ -1,0 +1,50 @@
+
+testcases/test1/test1.o:     file format elf64-x86-64
+
+Contents of section .note.gnu.property:
+ 0000 04000000 10000000 05000000 474e5500  ............GNU.
+ 0010 020000c0 04000000 03000000 00000000  ................
+Contents of section .text:
+ 0000 f30f1efa 554889e5 48897df8 488b45f8  ....UH..H.}.H.E.
+ 0010 8b10488b 45f84883 c0048b00 01d05dc3  ..H.E.H.......].
+ 0020 f30f1efa 554889e5 488d0500 00000048  ....UH..H......H
+ 0030 89c7e800 0000005d c3                 .......].       
+Contents of section .eh_frame:
+ 0000 14000000 00000000 017a5200 01781001  .........zR..x..
+ 0010 1b0c0708 90010000 1c000000 1c000000  ................
+ 0020 00000000 20000000 00450e10 8602430d  .... ....E....C.
+ 0030 06570c07 08000000 1c000000 3c000000  .W..........<...
+ 0040 00000000 19000000 00450e10 8602430d  .........E....C.
+ 0050 06500c07 08000000                    .P......        
+Contents of section .data:
+ 0000 01000000 02000000                    ........        
+Contents of section .comment:
+ 0000 00474343 3a202855 62756e74 75203131  .GCC: (Ubuntu 11
+ 0010 2e342e30 2d317562 756e7475 317e3232  .4.0-1ubuntu1~22
+ 0020 2e303429 2031312e 342e3000           .04) 11.4.0.    
+
+Disassembly of section .text:
+
+0000000000000000 <sum>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+   c:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  10:	8b 10                	mov    (%rax),%edx
+  12:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  16:	48 83 c0 04          	add    $0x4,%rax
+  1a:	8b 00                	mov    (%rax),%eax
+  1c:	01 d0                	add    %edx,%eax
+  1e:	5d                   	pop    %rbp
+  1f:	c3                   	ret    
+
+0000000000000020 <main>:
+  20:	f3 0f 1e fa          	endbr64 
+  24:	55                   	push   %rbp
+  25:	48 89 e5             	mov    %rsp,%rbp
+  28:	48 8d 05 00 00 00 00 	lea    0x0(%rip),%rax        # 2f <main+0xf>
+  2f:	48 89 c7             	mov    %rax,%rdi
+  32:	e8 00 00 00 00       	call   37 <main+0x17>
+  37:	5d                   	pop    %rbp
+  38:	c3                   	ret    
